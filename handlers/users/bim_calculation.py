@@ -52,6 +52,7 @@ async def answer_growth_bim(message: types.Message, state: FSMContext):
     result = calc_IMT(growth=answers['growth'], body_mass=answers['body_mass'])
     await message.answer(TEXT['result_bim'].format(result),
                          reply_markup=menu.end_daily_norm_menu, parse_mode='Markdown')
+    await message.answer(TEXT['result_bim_two'])
     logging.info(f'result_bim: {result}')
     await state.finish()
 
